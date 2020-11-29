@@ -26,7 +26,7 @@ import os
 # Set IP target and set Port and Set url target
 ip = "10.10.61.85"
 path = "/ctf/sendcookie"
-url = f"http://{ip}:8081"+ path
+url = f"http://{ip}:8081{path}"
 cookies = {"flagpls":"flagpls"}
 
 #r = requests.get(url)

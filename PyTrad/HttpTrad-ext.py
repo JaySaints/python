@@ -13,10 +13,10 @@ from datetime import datetime
 
 
 moeda = 'BTC'
-valor = 283000.10
+valor = 288000.00
 
 # Tempo em segunda para atualizar o valor
-atualiza = 5
+atualiza = 60
 
 # Url da API passa os dados
 urlTicker = f'https://www.mercadobitcoin.net/api/{moeda}/ticker'
@@ -41,7 +41,7 @@ while True:
     page = requests.get(urlTicker)
     getValues = page.json()
     ultimoPreco = float(getValues['ticker']['last'])
-    # Verifica estabilidade do valor por 10 seg
+    # Verifica estabilidade do valor
     if ultimoPreco >= valor:
         flag += 1
     if flag == 2:
@@ -52,5 +52,5 @@ while True:
         #             {strfdata}              #
         #######################################''')
         break
-    time.sleep(atualiza)
     print(f'[{strfdata}] $ {ultimoPreco} ')
+    time.sleep(atualiza)
